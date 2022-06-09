@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1,
+        "address": {
+            "street": "127 N Dearborn St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 127 N Dearborn St. This is the Block 37 parking garage operated by SP+. It is located on the east/right-hand side of N Dearborn St (a one-way street) between W Washington St. & W Randolph St. Once you pass the 'Washington CTA Blue Line Station' entrance, the garage will be 100 feet ahead on the right side. You must drive right up to the garage door for it to open. **In order to park at this facility you must be a patron of Block 37",
+        "distance": "0.1 mi",
+        "facility_photo": "facility_photo_1.jpg",
+        "price": 1400
+    },
+    {
+        "id": 2,
+        "address": {
+            "street": "181 N Clark St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 181 N Clark St. This is the Government Center garage operated by InterPark. It is located on the east/left-hand side of N Clark St. (a one-way street) between W Lake St. and W Randolph St. You may also enter this location at its other entrance, 81 W Lake St.",
+        "distance": "390 ft",
+        "facility_photo": "facility_photo_2.jpg",
+        "price": 1650
+    },
+    {
+        "id": 3,
+        "address": {
+            "street": "81 W Lake St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 81 W Lake St. This is the Government Center garage operated by InterPark. It is located on the south/right-hand side of W Lake St. (a one-way street) between N Clark St. and S Dearborn St. You may also enter this location at its other entrance, 181 N Clark St.",
+        "distance": "0.1 mi",
+        "facility_photo": "facility_photo_3.jpg",
+        "price": 1500
+    },
+    {
+        "id": 4,
+        "address": {
+            "street": "117 N Wells St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 117 N Wells St. This is a One Parking facility for the 120 N LaSalle building and can be accessed from the east side of N Wells St. The closest intersection is N Wells St. and W Randolph St. Look for the black and white '120 N. LaSalle' sign above the garage entrance. When you return to your vehicle, access this facility through the '120 N. LaSalle' building.",
+        "distance": "0.2 mi",
+        "facility_photo": "facility_photo_4.jpg",
+        "price": 1430
+    },
+    {
+        "id": 5,
+        "address": {
+            "street": "110 W Lake St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 110 W Lake St. This garage is operated by InterPark. It is located on the north/left-hand side of W Lake St. (a one-way street) between N LaSalle St. and N Clark St. There is a black sign stating 'Self Park' in white writing above the garage entrance, entrance is just past the 'CTA Clark/Lake' sign on north side of Lake St.",
+        "distance": "0.2 mi",
+        "facility_photo": "facility_photo_5.jpg",
+        "price": 1450
+    },
+    {
+        "id": 6,
+        "address": {
+            "street": "181 N Dearborn St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 181 N Dearborn St. This is the Theater District Garage, operated by InterPark. It is located on the east/right-hand side of N Dearborn St. (a one-way street) between W Randolph St. and W Lake St. You may also enter this location at its other entrance, 19 W Lake St.",
+        "distance": "0.3 mi",
+        "facility_photo": "facility_photo_6.jpg",
+        "price": 1800
+    },
+    {
+        "id": 7,
+        "address": {
+            "street": "118 N Wells St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 118 N Wells St. This is the Washington-Franklin garage operated by InterPark. It is located on the west/right-hand side of N Wells St. (a southbound one-way street) between W Randolph St. and W Washington St. You may also enter this location at its other entrance, 230 W Washington St. & 111 N Franklin St.",
+        "distance": "0.2 mi",
+        "facility_photo": "facility_photo_7.jpg",
+        "price": 1200
+    },
+    {
+        "id": 8,
+        "address": {
+            "street": "1 W Washington St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Arrive at 1 W Washington St. This valet stand for The Staypineapple is operated by VPA. It is located on the south/right-hand side of W Washington St. (an eastbound one-way street) between N Dearborn St. and N State St. You do NOT need stay at the hotel to reserve valet parking at this location. The valet stand is directly in front of the hotel entrance.",
+        "distance": "100 ft",
+        "facility_photo": "facility_photo_8.jpg",
+        "price": 1850
+    },
+    {
+        "id": 9,
+        "address": {
+            "street": "121 W Haddock Pl.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 121 W Haddock Pl. This is the entrance address for the 221 N LaSalle St. valet garage, operated by Legacy Parking. It is located on the north side of W Haddock Pl. between N Lasalle St. and N Clark St. The entrance is marked by a black 'Park' sign with green white lettering.",
+        "distance": "0.3 mi",
+        "facility_photo": "facility_photo_9.jpg",
+        "price": 1400
+    },
+    {
+        "id": 10,
+        "address": {
+            "street": "172 W Madison St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 172 W Madison St. This is the Washington-Madison-Wells Garage, operated by Legacy Parking. It is located on the north/right-hand side of W Madison St. (a one-way street) between N LaSalle St. and S Wells St. The entrance is marked by a blue 'Self Park' sign with white lettering.",
+        "distance": "0.3 mi",
+        "facility_photo": "facility_photo_10.jpg",
+        "price": 1550
+    },
+    {
+        "id": 11,
+        "address": {
+            "street": "11 S Lasalle St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 11 S Lasalle St. This is the Marriott Residence Inn valet, operated by LAZ. It is located on the east side of S Lasalle St. between W Arcade Pl. and W Madison St. The entrance is marked by a black 'Marriott Residence Inn' awning with white lettering.",
+        "distance": "1.2 mi",
+        "facility_photo": "facility_photo_11.jpg",
+        "price": 1999
+    },
+    {
+        "id": 12,
+        "address": {
+            "street": "19 W Lake St.",
+            "city": "Chicago",
+            "state": "IL"
+        },
+        "description": "Enter this location at 19 W Lake St. This is the Theater District Garage operated by InterPark. It is located on the south/right-hand side of W Lake St. (a one-way street) between N Dearborn St. and N State St. You may also enter this location at its other entrance, 181 N Dearborn St.",
+        "distance": "0.4 mi",
+        "facility_photo": "facility_photo_12.jpg",
+        "price": 950
+    }
+]
