@@ -27,14 +27,19 @@ class MockInterceptor @Inject constructor(private val context: Context) : Interc
 
         if (BuildConfig.DEBUG) {
             val uri = chain.request().url.toUri().toString()
-            val isNumberOnEnd = uri.endsWithNumber("spots/")
 
             // get mock data from local asset file
             val responseString = when {
-                uri.endsWith("spots") -> getSpotsJsonFromAsset(context)
-                isNumberOnEnd -> getSpotIdJsonFromAsset(uri.substringAfterLast("spots/"), context)
-                else -> getJsonAssetFile("error.json", context)
-                // else -> return chain.proceed(chain.request()) // use a live request if not mocked
+                // /spots
+                uri.endsWith("/spots") ->
+                    getSpotsJsonFromAsset(context)
+
+                // /spots/{id}
+                uri.endsWithNumber("spots/") ->
+                    getSpotIdJsonFromAsset(uri.substringAfterLast("spots/"), context)
+
+                // error
+                else -> "[]"
             }
 
             return chain.proceed(chain.request())
@@ -58,8 +63,8 @@ class MockInterceptor @Inject constructor(private val context: Context) : Interc
     }
 }
 
-private fun String.endsWithNumber(pathWithFinalSlash: String): Boolean {
-    val numberStr = this.substringAfterLast(pathWithFinalSlash)
+private fun String.endsWithNumber(suffixWithFinalSlash: String): Boolean {
+    val numberStr = this.substringAfterLast(suffixWithFinalSlash)
 
     if (numberStr.isNotEmpty()) {
         val number = numberStr.toIntOrNull()
@@ -103,6 +108,10 @@ fun getJsonAssetFile(assetsFile: String, context: Context): String {
     }
 }
 
+
+
+////////////////////// LOCAL TESTING ///////////////////////////////
+
 fun main() {
     testEndsWithNumber()
     testGetSpotId()
@@ -110,6 +119,7 @@ fun main() {
 
 fun testEndsWithNumber() {
     val uri = "https://api.spothero.com/spots/1"
+
     println(uri.endsWithNumber("spots/"))
     println(uri.substringAfterLast("spots/"))
 }
