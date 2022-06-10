@@ -12,6 +12,10 @@
 #   public *;
 #}
 
+-keepclassmembers @kotlinx.serialization.Serializable class ** {
+    *** Companion;
+}
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
