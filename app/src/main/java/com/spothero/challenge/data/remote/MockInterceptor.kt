@@ -19,7 +19,7 @@ import javax.inject.Inject
  * yet on Backend side.
  */
 const val SUCCESS_CODE = 200
-const val FAILURE_CODE = 500
+const val FAILURE_CODE = 404
 
 class MockInterceptor @Inject constructor(private val context: Context) : Interceptor {
 
@@ -27,24 +27,32 @@ class MockInterceptor @Inject constructor(private val context: Context) : Interc
 
         if (BuildConfig.DEBUG) {
             val uri = chain.request().url.toUri().toString()
+            var code = FAILURE_CODE
 
             // get mock data from local asset file
             val responseString = when {
-                // /spots
-                uri.endsWith("/spots") ->
+                // .../spots
+                uri.endsWith("/spots") -> {
+                    code = SUCCESS_CODE
                     getSpotsJsonFromAsset(context)
+                }
 
-                // /spots/{id}
-                uri.endsWithNumber("spots/") ->
+                // .../spots/{id}
+                uri.endsWithNumber("spots/") -> {
+                    code = SUCCESS_CODE
                     getSpotIdJsonFromAsset(uri.substringAfterLast("spots/"), context)
+                }
 
                 // error
-                else -> "[]"
+                else -> {
+                    code = FAILURE_CODE
+                    "[]"
+                }
             }
 
             return chain.proceed(chain.request())
                 .newBuilder()
-                .code(SUCCESS_CODE)
+                .code(code)
                 .protocol(Protocol.HTTP_2)
                 .message(responseString)
                 .body(
@@ -95,7 +103,7 @@ private fun getSpotId(spotsJson: String, spotId: String): String {
 
 fun getJsonAssetFile(assetsFile: String, context: Context): String {
     return try {
-        val inputStream = context.assets.open("coins.json")
+        val inputStream = context.assets.open(assetsFile)
         val buffer = ByteArray(inputStream.available())
         inputStream.read(buffer)
         inputStream.close()

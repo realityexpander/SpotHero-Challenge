@@ -6,16 +6,16 @@ import androidx.lifecycle.viewModelScope
 import com.spothero.challenge.common.Resource
 import com.spothero.challenge.data.repository.SpotHeroApi2
 import com.spothero.challenge.usecase.GetSpotsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 // ViewModel is necessary to keep the state of the view between configuration changes
 
-//@HiltViewModel
+@HiltViewModel
 class SpotListViewModel @Inject constructor(
-    private val getSpotsUseCase: GetSpotsUseCase, // this has the repository injected
-    val api: SpotHeroApi2
+    private val getSpotsUseCase: GetSpotsUseCase // this has the repository injected
 ): ViewModel() {
 
     var state = mutableStateOf(SpotListState())
