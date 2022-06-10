@@ -38,7 +38,7 @@ class MockInterceptor @Inject constructor(private val context: Context) : Interc
                 }
 
                 // .../spots/{id}
-                uri.endsWithNumber("spots/") -> {
+                uri.endsWithNumberAfterSuffix("spots/") -> {
                     code = SUCCESS_CODE
                     getSpotIdJsonFromAsset(uri.substringAfterLast("spots/"), context)
                 }
@@ -71,8 +71,8 @@ class MockInterceptor @Inject constructor(private val context: Context) : Interc
     }
 }
 
-private fun String.endsWithNumber(suffixWithFinalSlash: String): Boolean {
-    val numberStr = this.substringAfterLast(suffixWithFinalSlash)
+private fun String.endsWithNumberAfterSuffix(suffix: String): Boolean {
+    val numberStr = this.substringAfterLast(suffix)
 
     if (numberStr.isNotEmpty()) {
         val number = numberStr.toIntOrNull()
@@ -128,7 +128,7 @@ fun main() {
 fun testEndsWithNumber() {
     val uri = "https://api.spothero.com/spots/1"
 
-    println(uri.endsWithNumber("spots/"))
+    println(uri.endsWithNumberAfterSuffix("spots/"))
     println(uri.substringAfterLast("spots/"))
 }
 

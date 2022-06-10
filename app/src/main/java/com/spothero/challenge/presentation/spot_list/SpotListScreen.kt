@@ -1,9 +1,6 @@
 package com.spothero.challenge.presentation.spot_list
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
@@ -27,7 +24,12 @@ fun SpotListScreen(
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.spots) { spot ->
-                println(spot)
+                Text(
+                    text = spot.address.toString(),
+                    style = MaterialTheme.typography.h6,
+                    modifier = Modifier.padding(16.dp),
+                    maxLines = 2,
+                )
 //                SpotListItem(
 //                    spot = spot,
 //                    onClick = {
@@ -36,6 +38,7 @@ fun SpotListScreen(
 //                )
             }
         }
+
 
         if (state.isError) {
             Text(
@@ -48,7 +51,7 @@ fun SpotListScreen(
                     .align(Alignment.Center)
             )
         }
-        if(state.isLoading) {
+        if (state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
