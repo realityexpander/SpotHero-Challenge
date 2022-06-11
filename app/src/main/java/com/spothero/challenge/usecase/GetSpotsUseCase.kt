@@ -17,8 +17,13 @@ class GetSpotsUseCase @Inject constructor(
         try {
             emit(Resource.Loading())
 
-            val spots = spotsRepo.getSpotDTOs().toSpots()
-            emit(Resource.Success(spots))
+            val spots = spotsRepo.getSpotDTOs()
+            if(spots == null) {
+                emit(Resource.Error("API error - Spots list not found."))
+                return@flow
+            }
+
+            emit(Resource.Success(spots.toSpots()))
         } catch (e: IOException) {
             emit(Resource.Error(e.localizedMessage
                 ?: "Could not reach server, check internet connection.")

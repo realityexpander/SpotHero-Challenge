@@ -4,7 +4,7 @@ import com.spothero.challenge.data.model.SpotDTO
 
 interface SpotHeroRepositoryInterface {
 
-    suspend fun getSpotDTOs(): List<SpotDTO>
+    suspend fun getSpotDTOs(): List<SpotDTO>?
 
     suspend fun getSpotDTOById(spotId: Int): SpotDTO?
 

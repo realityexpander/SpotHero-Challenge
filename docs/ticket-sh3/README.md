@@ -46,6 +46,6 @@ As a Product Manager, I would like to know the level of effort required to compl
     rest of the top bar to look like standard Android applications? 
   * Are the Icons from a standard library, and will they be supplied?
   * Is the font currently installed in the app?
-  * Android has a standard textField, how close does the UI have to look for the
-    text input Fields? Can we use the Android standard textField? Customization
-    of this textField will take extra time and require more testing.
+  * Android Compose has a standard text input Field. How close does to the image provided does the UI
+    have to look for the text input Fields? Can we use the Android standard textField? 
+    * Customization of this textField will take extra time and require more testing.
