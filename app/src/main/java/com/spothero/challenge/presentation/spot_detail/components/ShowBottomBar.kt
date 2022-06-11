@@ -21,9 +21,10 @@ import java.util.*
 @Composable
 fun ShowBottomBar(
     state: SpotDetailState,
-    spot: Spot?,
-    dollarNumberFormat: NumberFormat
+    spot: Spot?
 ) {
+    val dollarNumberFormat = NumberFormat.getCurrencyInstance(Locale.US)
+
     if (!state.isError && !state.isLoading && spot != null) {
         Button(
             onClick = {

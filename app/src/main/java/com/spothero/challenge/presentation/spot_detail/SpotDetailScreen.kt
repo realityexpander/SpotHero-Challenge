@@ -28,7 +28,6 @@ fun SpotDetailScreen(
     viewModel: SpotDetailViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
-    val dollarNumberFormat = NumberFormat.getCurrencyInstance(Locale.US)
     val spot = state.spot
 
     Scaffold(
@@ -78,7 +77,7 @@ fun SpotDetailScreen(
                 contentColor = MaterialTheme.colors.onPrimary,
                 elevation = 0.dp
             ) {
-                ShowBottomBar(state, spot, dollarNumberFormat)
+                ShowBottomBar(state, spot)
             }
         }
     )

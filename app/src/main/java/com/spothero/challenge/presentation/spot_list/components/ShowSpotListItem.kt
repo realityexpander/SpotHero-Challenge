@@ -14,6 +14,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.spothero.challenge.common.Constants.PHOTO_LOCATION
 import com.spothero.challenge.domain.model.Spot
 import com.spothero.challenge.presentation.ui.ScreenNav
 import java.text.NumberFormat
@@ -36,7 +37,7 @@ fun ShowSpotListItem(
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AsyncImage(
-                model = "file:///android_asset/" + spot.facilityPhoto,
+                model = PHOTO_LOCATION + spot.facilityPhoto,
                 contentScale = ContentScale.Fit,
                 contentDescription = "Facility Photo",
                 modifier = Modifier
