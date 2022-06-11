@@ -13,15 +13,18 @@ As a Product Manager, I would like to know the level of effort required to compl
 
 
 ## Estimate
-* 2-8 hours
+* 4-8 hours
 
 ## Technical Level
 * Intermediate
   * I would use compose for the UI Components and layouts. There are some 
-    built-in components that work well for the text entry fields with labels.
+    built-in components that work well for the text entry fields with hints.
   * For the gradient, there is also a gradient component that I would use.
-  * Validation code will take extra time to implement.
+* Why Intermediate?
+  * Validation code (if required) will take extra time to implement.
   * This estimate is solely for the UI, and not the backend or validation.
+  * Customization of the Text Input field to pixel-match the design is a 
+    increased effort.
 
 ## Questions for the Product Manager
 * Level of validation for the user input.
