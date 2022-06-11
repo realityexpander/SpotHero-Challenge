@@ -1,4 +1,4 @@
-package com.realityexpander.cryptoapp.presentation.ui.theme
+package com.spothero.challenge.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,10 +1,10 @@
 package com.spothero.challenge.domain.model
 
 data class Spot(
-    val id: Int,
-    val address: Address,
-    val description: String,
-    val distance: String,
-    var facilityPhoto: String,
-    val price: Long
+    val id: Int = 0,
+    val address: Address = Address(),
+    val description: String = "Unknown description",
+    val distance: String = " Unknown distance",
+    var facilityPhoto: String = "",
+    val price: Long = 0,
 )

@@ -1,9 +1,14 @@
-package com.spothero.challenge.presentation.spot_list
+package com.spothero.challenge.presentation.spot_detail
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.spothero.challenge.common.Constants.PARAM_SPOT_ID
 import com.spothero.challenge.common.Resource
+import com.spothero.challenge.domain.model.Spot
+import com.spothero.challenge.presentation.spot_list.SpotDetailState
+import com.spothero.challenge.usecase.GetSpotInfoUseCase
 import com.spothero.challenge.usecase.GetSpotsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -13,29 +18,48 @@ import javax.inject.Inject
 // ViewModel is necessary to keep the state of the view between configuration changes
 
 @HiltViewModel
-class SpotListViewModel @Inject constructor(
-    private val getSpotsUseCase: GetSpotsUseCase // this has the repository injected
-): ViewModel() {
+class SpotDetailViewModel @Inject constructor(
+    private val getSpotInfoUseCase: GetSpotInfoUseCase,
+    savedStateHandle: SavedStateHandle  // gets nav params
+) : ViewModel() {
 
-    var state = mutableStateOf(SpotListState())
+    var state = mutableStateOf(SpotDetailState())
         private set
 
     init {
-        getSpots()
+        savedStateHandle.get<Int>(PARAM_SPOT_ID)?.let { spotId ->
+            getSpotInfo(spotId)
+        } ?: run {
+            state.value = state.value.copy(
+                isLoading = false,
+                isError = true,
+                errorMessage = "No spotId parameter provided."
+            )
+        }
+
     }
 
-    private fun getSpots() {
+    private fun getSpotInfo(spotId: Int) {
 
-        getSpotsUseCase().onEach { result ->
+        if (spotId <= 0) {
+            state.value = state.value.copy(
+                isLoading = false,
+                isError = true,
+                errorMessage = "Invalid spotId parameter provided."
+            )
+            return
+        }
+
+        getSpotInfoUseCase(spotId).onEach { result ->
 //            val result2: Resource<*> = // keep for testing
-//                Resource.Error<List<Spot>>(errorMessage = "", message = "Network error.")
+//                Resource.Error<Spot>(errorMessage = "", message = "Network error.")
 
             when (result) {
                 is Resource.Success -> {
                     state.value = state.value.copy(
                         isLoading = false,
                         isError = false,
-                        spots = result.data ?: emptyList()
+                        spot = result.data ?: Spot()
                     )
                 }
                 is Resource.Error -> {
