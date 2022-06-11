@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.spothero.challenge.domain.model.Spot
+import com.spothero.challenge.presentation.spot_list.components.ShowSpotListItem
 import com.spothero.challenge.presentation.ui.ScreenNav
 import java.text.NumberFormat
 import java.util.*
@@ -61,50 +63,7 @@ fun SpotListScreen(
                         val sortedSpotsByPrice = state.spots.sortedBy { it.price }
 
                         items(sortedSpotsByPrice) { spot ->
-                            Column(modifier = Modifier.clickable(
-                                onClick = {
-                                    navController.navigate(
-                                        ScreenNav.SpotDetailScreen.route + "/${spot.id}"
-                                    )
-                                })
-                                .fillMaxWidth()
-                            ) {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    AsyncImage(
-                                        model = "file:///android_asset/" + spot.facilityPhoto,
-                                        contentScale = ContentScale.Fit,
-                                        contentDescription = "Facility Photo",
-                                        modifier = Modifier
-                                            .fillMaxHeight()
-                                            .padding(16.dp)
-                                            .height(72.dp)
-                                    )
-                                    Column {
-                                        Text(
-                                            text = AnnotatedString(
-                                                spot.address.street,
-                                                SpanStyle()
-                                            ),
-                                            style = MaterialTheme.typography.body2,
-                                            maxLines = 1,
-                                        )
-                                        Text(
-                                            text = AnnotatedString(spot.distance, SpanStyle()),
-                                            style = MaterialTheme.typography.body2,
-                                            maxLines = 1,
-                                        )
-                                        Text(
-                                            text = AnnotatedString(
-                                                dollarNumberFormat.format(spot.price / 100.0),
-                                                SpanStyle()
-                                            ),
-                                            style = MaterialTheme.typography.body2,
-                                            maxLines = 1,
-                                        )
-                                    }
-                                }
-                            }
-                            Divider()
+                            ShowSpotListItem(navController, spot, dollarNumberFormat)
                         }
                     }
                 }

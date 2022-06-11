@@ -31,7 +31,7 @@ fun ShowBottomBar(
             },
             shape = RoundedCornerShape(32.dp),
             modifier = Modifier
-                .padding(top = 8.dp, bottom = 8.dp, start = 16.dp, end = 16.dp)
+                .padding(top = 8.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {

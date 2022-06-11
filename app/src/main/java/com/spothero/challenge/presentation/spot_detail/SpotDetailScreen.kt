@@ -72,7 +72,8 @@ fun SpotDetailScreen(
         },
         bottomBar = {
             BottomAppBar(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .height(68.dp),
                 backgroundColor = MaterialTheme.colors.onPrimary,
                 contentColor = MaterialTheme.colors.onPrimary,
                 elevation = 0.dp

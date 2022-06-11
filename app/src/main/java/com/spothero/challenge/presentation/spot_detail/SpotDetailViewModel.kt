@@ -51,9 +51,6 @@ class SpotDetailViewModel @Inject constructor(
         }
 
         getSpotInfoUseCase(spotId).onEach { result ->
-//            val result2: Resource<*> = // keep for testing
-//                Resource.Error<Spot>(errorMessage = "", message = "Network error.")
-
             when (result) {
                 is Resource.Success -> {
                     state.value = state.value.copy(

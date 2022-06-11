@@ -4,7 +4,7 @@ import android.content.Context
 import com.spothero.challenge.BuildConfig
 import com.spothero.challenge.common.Constants
 import com.spothero.challenge.data.remote.MockInterceptor
-import com.spothero.challenge.data.repository.SpotHeroApi2
+import com.spothero.challenge.data.repository.SpotHeroApi
 import com.spothero.challenge.data.repository.SpotHeroRepositoryImpl
 import com.spothero.challenge.domain.repository.SpotHeroRepositoryInterface
 import dagger.Module
@@ -43,31 +43,31 @@ object AppModule {
     @Named("MockSpotHeroApi")
     fun provideMockSpotHeroApi(
         @Named("MockOkHttpClient") client: OkHttpClient
-    ): SpotHeroApi2 {
+    ): SpotHeroApi {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(SpotHeroApi2::class.java)
+            .create(SpotHeroApi::class.java)
     }
 
     @Provides
     @Singleton
     @Named("SpotHeroApi")
-    fun provideSpotHeroApi(): SpotHeroApi2 {  // uses OkHttpClient by default
+    fun provideSpotHeroApi(): SpotHeroApi {  // uses OkHttpClient by default
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(SpotHeroApi2::class.java)
+            .create(SpotHeroApi::class.java)
     }
 
     @Provides
     @Singleton
     fun provideSpotHeroRepository(
-        @Named("SpotHeroApi") spotHeroApi: SpotHeroApi2,
-        @Named("MockSpotHeroApi") mockSpotHeroApi: SpotHeroApi2
+        @Named("SpotHeroApi") spotHeroApi: SpotHeroApi,
+        @Named("MockSpotHeroApi") mockSpotHeroApi: SpotHeroApi
     ): SpotHeroRepositoryInterface {
 
         if (BuildConfig.MOCK_MODE) {

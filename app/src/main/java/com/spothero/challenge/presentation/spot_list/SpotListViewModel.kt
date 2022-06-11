@@ -27,9 +27,6 @@ class SpotListViewModel @Inject constructor(
     private fun getSpots() {
 
         getSpotsUseCase().onEach { result ->
-//            val result2: Resource<*> = // keep for testing
-//                Resource.Error<List<Spot>>(errorMessage = "", message = "Network error.")
-
             when (result) {
                 is Resource.Success -> {
                     state.value = state.value.copy(
