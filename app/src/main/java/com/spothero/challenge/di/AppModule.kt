@@ -46,7 +46,7 @@ object AppModule {
     ): SpotHeroApi {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
-            .client(client)
+            .client(client)  // user custom mock OkHttpClient
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(SpotHeroApi::class.java)
@@ -55,7 +55,7 @@ object AppModule {
     @Provides
     @Singleton
     @Named("SpotHeroApi")
-    fun provideSpotHeroApi(): SpotHeroApi {  // uses OkHttpClient by default
+    fun provideSpotHeroApi(): SpotHeroApi {  // uses normal OkHttpClient by default
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
