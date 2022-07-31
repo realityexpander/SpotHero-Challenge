@@ -1,7 +1,5 @@
 # CodeChallenge-Android
 
-The SpotHero Android team is excited to move you forward in the interview process! The next step will be a coding challenge designed to give us insight into how you solve problems, build applications, and structure your code.
-
 ## Table of Contents
 
 1. [Overview](#overview)
@@ -11,15 +9,7 @@ The SpotHero Android team is excited to move you forward in the interview proces
 
 ## Overview
 
-Included in this repo is a simplified, barebones **SpotHero** app. There are a number of tickets outlined in this README below. For this Code Challenge, we ask that you get through as many of the tickets as possible within 2 hours.
-
-If you have any blocking issues that you feel prevent you from moving forward with the challenge, please don't hesitate to reach out to the SpotHero Technical Recruiter that contacted you.
-
-If there is any confusion during the process, please try your best to make a safe assumption and proceed with the challenge, then submit all questions, concerns, and additional feedback along with your code challenge submission.
-
-Please note that there are no intentional bugs or errors included in the code we have provided. If you see a problem with our sample project, please let us know along with your submission.
-
-Thanks, and good luck!
+Included in this repo is a simplified, barebones **SpotHero** app.
 
 ### Mock API
 
