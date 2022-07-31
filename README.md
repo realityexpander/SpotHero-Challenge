@@ -1,5 +1,7 @@
 # CodeChallenge-Android
 
+Solution implemented using Compose, Hilt Dependency Injection, Use-cases, Retrofit, Mock server
+
 ## Table of Contents
 
 1. [Overview](#overview)
@@ -9,7 +11,7 @@
 
 ## Overview
 
-Included in this repo is a simplified, barebones **SpotHero** app.
+Included in this repo is a simplified, completed **SpotHero** app.
 
 ### Mock API
 
